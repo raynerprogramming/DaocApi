@@ -1,0 +1,8 @@
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe.config
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\ConsoleApplication3.pdb
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\Newtonsoft.Json.dll
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\Newtonsoft.Json.xml
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\FileGenerator.csprojResolveAssemblyReference.cache
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.exe
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.pdb
