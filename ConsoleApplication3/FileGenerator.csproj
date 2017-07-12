@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DaocEnums.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="MappedBonus.cs" />
     <Compile Include="Program.cs" />

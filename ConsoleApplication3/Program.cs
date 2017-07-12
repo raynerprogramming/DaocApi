@@ -14,44 +14,8 @@ namespace FileGenerator
         {
             public List<Item> items { get; set; }
         }
-        //typeid=1
-        public enum Attributes
-        {
-            Strength = 0,
-            Dexterity = 1,
-            Constitution = 2,
-            Quickness = 3,
-            Intelligence = 4,
-            Piety = 5,
-            Empathy = 6,
-            Charisma = 7,
-            Aquity = 10
-        }
-
-        //typeid=5
-        public enum Resistances
-        {
-            Crush = 1,
-            Slash = 2,
-            Thrust = 3,
-            Heat = 10,
-            Cold = 12,
-            Matter = 13,
-            Body = 16,
-            Spirit = 18,
-            Energy = 22
-        }
 
 
-        public enum bonustype
-        {
-            Attribute = 1,
-            Hits = 4,
-            Resistance = 5,
-            AF = 22
-            //28
-            //25
-        }
         public static void WriteItemsToFile(List<Item> items, string filename)
         {
             if (!Directory.Exists(Path.GetDirectoryName(filename)))
@@ -65,19 +29,19 @@ namespace FileGenerator
 
             if (b.type == 1)
             {
-                return new MappedBonus() { MythicId = b.id, MythicType = b.type, MythicValue = b.value, Name = Enum.GetName(typeof(Attributes), b.id), Type = Enum.GetName(typeof(bonustype), b.type), Value = b.value.ToString() };
+                return new MappedBonus() { MythicId = b.id, MythicType = b.type, MythicValue = b.value, Name = Enum.GetName(typeof(DaocEnums.Attributes), b.id), Type = Enum.GetName(typeof(DaocEnums.bonustype), b.type), Value = b.value.ToString() };
             }
             else if (b.type == 4)
             {
-                return new MappedBonus() { MythicId = b.id, MythicType = b.type, MythicValue = b.value, Name = "Hits", Type = Enum.GetName(typeof(bonustype), b.type), Value = b.value.ToString() };
+                return new MappedBonus() { MythicId = b.id, MythicType = b.type, MythicValue = b.value, Name = "Hits", Type = Enum.GetName(typeof(DaocEnums.bonustype), b.type), Value = b.value.ToString() };
             }
             else if (b.type == 5)
             {
-                return new MappedBonus() { MythicId = b.id, MythicType = b.type, MythicValue = b.value, Name = Enum.GetName(typeof(Resistances), b.id), Type = Enum.GetName(typeof(bonustype), b.type), Value = b.value.ToString() };
+                return new MappedBonus() { MythicId = b.id, MythicType = b.type, MythicValue = b.value, Name = Enum.GetName(typeof(DaocEnums.Resistances), b.id), Type = Enum.GetName(typeof(DaocEnums.bonustype), b.type), Value = b.value.ToString() };
             }
             else if (b.type == 22)
             {
-                return new MappedBonus() { MythicId = b.id, MythicType = b.type, MythicValue = b.value, Name = "AF", Type = Enum.GetName(typeof(bonustype), b.type), Value = b.value.ToString() };
+                return new MappedBonus() { MythicId = b.id, MythicType = b.type, MythicValue = b.value, Name = "AF", Type = Enum.GetName(typeof(DaocEnums.bonustype), b.type), Value = b.value.ToString() };
             }
             return null;
         }
@@ -118,12 +82,11 @@ namespace FileGenerator
 
                         }
                     }
-                    var 
-
                     //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "items");
                     var path = Path.Combine(@"C:\Users\Matt\Documents\", "items");
                     var accessoryIcons = items.items.Where(x => x.category == 5 && x.flags.dyable == false && x.flags.emblemizable == false && x.requirements?.level_required > 45).Select(x => x.icon).Distinct().ToList();
 
+                    var distinctBonuses = items.items.Where(x => x.bonuses != null).SelectMany(x => x.bonuses.Select(y => y.type).Distinct().ToList()).OrderBy(x => x).Distinct().ToList();
 
                     var jewelIcons = new List<int>() { 52, 262, 514, 115, 104, 117, 118, 119, 540, 110, 116, 113, 114, 542, 111, 112, 105, 106, 107, 496, 498, 524, 549, 550, 555, 595 };
                     var neckIcons = new List<int>() { 523, 101, 623, 509, 101, 500, 3807, 3808, 3809 };
