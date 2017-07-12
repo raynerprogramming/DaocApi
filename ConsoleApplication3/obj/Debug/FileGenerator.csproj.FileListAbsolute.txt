@@ -6,3 +6,11 @@ c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleA
 c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\FileGenerator.csprojResolveAssemblyReference.cache
 c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.exe
 c:\users\matt\documents\visual studio 2015\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.pdb
+C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe.config
+C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\obj\Debug\ConsoleApplication3.exe
+C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\obj\Debug\ConsoleApplication3.pdb
+C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe
+C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\bin\Debug\ConsoleApplication3.pdb
+C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\obj\Debug\FileGenerator.csprojResolveAssemblyReference.cache
