@@ -1,2 +1,5 @@
-ConsoleApplication3\bin\
-ConsoleApplication3\obj\
+**/bin/Debug/
+**/obj/
+Debug/
+obj/
+bin/
