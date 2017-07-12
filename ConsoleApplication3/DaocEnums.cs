@@ -41,8 +41,10 @@ namespace FileGenerator
             public int max { get; set; }
             public string text { get; set; }
 
+            public enum children { set; }
 
         }
+
         public enum bonustype
         {
             Attribute = 1,
@@ -111,8 +113,7 @@ namespace FileGenerator
             MythicalHealthRegen=76,
             MythicalPowRegen=77,
             MythicalEndoRegen=78,
-            MythicalPhysicalDefense=80
-   
+            MythicalPhysicalDefense=80   
         }
     }
 }
