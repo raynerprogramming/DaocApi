@@ -14,3 +14,4 @@ C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\bin\Debug\ConsoleAppl
 C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\obj\Debug\FileGenerator.csprojResolveAssemblyReference.cache
+C:\Users\Matt\Documents\GitHub\DaocApi\ConsoleApplication3\bin\Debug\FileGenerator.exe.config
