@@ -181,6 +181,7 @@ namespace FileGenerator
                 var chests = items.items.Where(x => x.category == 2 && x.type_data.slot == 5);
 
                 //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "items");
+                var path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "ItemJsons");
                 var accessoryIcons = items.items.Where(x => x.category == 5 && x.flags.dyable == false && x.flags.emblemizable == false && x.requirements?.level_required > 45).Select(x => x.icon).Distinct().ToList();
 
                 var distinctBonuses = items.items.Where(x => x.bonuses != null).SelectMany(x => x.bonuses.Select(y => y.type).Distinct().ToList()).OrderBy(x => x).Distinct().ToList();
