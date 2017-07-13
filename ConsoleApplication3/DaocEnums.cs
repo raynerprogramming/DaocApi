@@ -41,8 +41,6 @@ namespace FileGenerator
             public int max { get; set; }
             public string text { get; set; }
 
-            public enum children { set; }
-
         }
 
         public enum bonustype
@@ -82,7 +80,7 @@ namespace FileGenerator
             Concentration=38,
             HealthRegen=40,
             PowerRegen=41,
-            PieceAblative=42,
+            PierceAblative=42,
             XpLossReduc=44,
             NegativeDurationRedPvE=46,
             StyleCostReducPvE=47,
@@ -101,7 +99,7 @@ namespace FileGenerator
             MythicalBlock=62,
             MythicalCoin = 63,
             MythicalStatCap=64,
-            MythicalCrowdControlDurationDescrease=66,
+            MythicalCrowdControlDurationDecrease = 66,
             MythicalEssenceResist=67,
             MythicalResCapStat=68,
             MythicalSiegeAblative=69,

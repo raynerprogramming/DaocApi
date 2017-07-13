@@ -8,9 +8,18 @@ namespace FileGenerator
 {
     class BaseBonus
     {
-        public DaocEnums.bonustype type { get; set; }
-        public int max { get; set; }
-        public string text { get; set; }
+        public DaocEnums.bonustype Type { get; set; }
+        public int? Max { get; set; }
+        public string Text { get; set; }
+        public bool IsPvE { get; set; }
+        public int? Value { get; set; }
 
+        public BaseBonus(DaocEnums.bonustype type, int? max, string text, bool isPvE) {
+            Type = type;
+            Max = max;
+            Text = text;
+            IsPvE = isPvE;
+
+        }
     }
 }

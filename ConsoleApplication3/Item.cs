@@ -8,6 +8,10 @@ namespace FileGenerator
 {
     class Item
     {
+        public Item ()
+        {
+            mappedBonuses = new List<BaseBonus>();
+        }
         public class Flags
         {
             public bool emblemizable { get; set; }
@@ -57,7 +61,7 @@ namespace FileGenerator
         public int sell_value { get; set; }
         public Flags flags { get; set; }
         public List<Bonus> bonuses { get; set; }
-        public List<MappedBonus> mappedBonuses { get; set; }
+        public List<BaseBonus> mappedBonuses { get; set; }
         public TypeData type_data { get; set; }
         public Sources sources { get; set; }
         public Requirements requirements { get; set; }
