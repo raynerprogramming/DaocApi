@@ -5,6 +5,27 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileGenerator", "FileGenerator\FileGenerator.csproj", "{61DB6E9F-FC6C-4D41-AD14-5C081396ACDD}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DaocApi", "DaocApi\", "{9D78CB03-2C43-43E9-81BA-2E08B3125EC3}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_38016"
+		Debug.AspNetCompiler.PhysicalPath = "DaocApi\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_38016\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_38016"
+		Release.AspNetCompiler.PhysicalPath = "DaocApi\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_38016\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "38016"
+		SlnRelativePath = "DaocApi\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +36,10 @@ Global
 		{61DB6E9F-FC6C-4D41-AD14-5C081396ACDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61DB6E9F-FC6C-4D41-AD14-5C081396ACDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61DB6E9F-FC6C-4D41-AD14-5C081396ACDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D78CB03-2C43-43E9-81BA-2E08B3125EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D78CB03-2C43-43E9-81BA-2E08B3125EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D78CB03-2C43-43E9-81BA-2E08B3125EC3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D78CB03-2C43-43E9-81BA-2E08B3125EC3}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
