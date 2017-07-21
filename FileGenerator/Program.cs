@@ -58,7 +58,9 @@ namespace FileGenerator
             else 
             {
                 
-                return bonusList.Where(x => x.Type == (DaocEnums.bonustype)b.type).First();
+                 var bonus= bonusList.Where(x => x.Type == (DaocEnums.bonustype)b.type).First();
+                bonus.Value = b.value;
+                return bonus;
             }
         }
 
@@ -66,7 +68,7 @@ namespace FileGenerator
         {
             return new List<BaseBonus>() {
                 //new BaseBonus(DaocEnums.bonustype.Attribute,75,"Attribute", false),
-                new BaseBonus(DaocEnums.bonustype.Skill, 11, "SKill", false),
+                new BaseBonus(DaocEnums.bonustype.Skill, 11, "Skill", false),
                 new BaseBonus(DaocEnums.bonustype.Hits, 200, "Hits", false),
                 //new BaseBonus(DaocEnums.bonustype.Resistance,  26, "Resistance", false),
                 new BaseBonus(DaocEnums.bonustype.Focus,  50, "Focus", false),
@@ -150,6 +152,16 @@ namespace FileGenerator
                 new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Slash", false, DaocEnums.Resistances.Slash),
                 new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Spirit", false, DaocEnums.Resistances.Spirit),
                 new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Thrust", false, DaocEnums.Resistances.Thrust),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Body", false, DaocEnums.Resistances.BodyRes),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Spirit", false, DaocEnums.Resistances.SpiritRes1),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Spirit", false, DaocEnums.Resistances.SpiritRes2),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Body", false, DaocEnums.Resistances.BodyRes2),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Body", false, DaocEnums.Resistances.BodyRes3),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Heat", false, DaocEnums.Resistances.HeatRes),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Matter", false, DaocEnums.Resistances.MatterRes),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Energy", false, DaocEnums.Resistances.EnergyRes),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Energy", false, DaocEnums.Resistances.EnergyRes2),
+                new ResistanceBonus(DaocEnums.bonustype.Resistance,  26, "Cold", false, DaocEnums.Resistances.ColdRes),
 
             };
 
@@ -163,7 +175,12 @@ namespace FileGenerator
                 Items items = (Items)serializer.Deserialize(file, typeof(Items));
 
                 foreach (Item item in items.items)
-                {   if (item.bonuses != null)
+                {
+                    if(item.name=="Poor Sod's Belt")
+                    {
+                        var asd = 12;
+                    }
+                    if (item.bonuses != null)
                     {
                         foreach (var bonus in item.bonuses)
                         {
@@ -181,11 +198,13 @@ namespace FileGenerator
                 var chests = items.items.Where(x => x.category == 2 && x.type_data.slot == 5);
 
                 //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "items");
-                var path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "ItemJsons");
+                var path = @"C:\Users\Matt\Documents\GitHub\DaocApi\DaocApi\src\assets";
                 var accessoryIcons = items.items.Where(x => x.category == 5 && x.flags.dyable == false && x.flags.emblemizable == false && x.requirements?.level_required > 45).Select(x => x.icon).Distinct().ToList();
-
-                var distinctBonuses = items.items.Where(x => x.bonuses != null).SelectMany(x => x.bonuses.Select(y => y.type).Distinct().ToList()).OrderBy(x => x).Distinct().ToList();
-
+                var notNullItems = items.items.Where(x => x.bonuses != null);
+                var distinctBonuses = notNullItems.SelectMany(x => x.bonuses.Select(y => y.type).Distinct().ToList()).OrderBy(x => x).Distinct().ToList();
+                var distinctResBonuses = notNullItems.Select(b => b.bonuses).ToList();// x.Select(y => y.type.GetValueOrDefault() == 5)).ToList();//.SelectMany(z => z.Select(a => a.id)).Distinct().ToList();
+                                                                                      // var distintResBonuses = items.items.Where(x => x.bonuses != null).Where(x.bonuses.Select.SelectMany(x => x.bonuses.Select(y => y.id).Distinct().ToList()).OrderBy(x => x).Distinct().ToList();
+               // var bonuses = distinctResBonuses.SelectMany(x => x.Where(y => y.type == 5)).OrderBy(a => a.id).Where(z => z.id).Distinct().ToList();
                 var jewelIcons = new List<int>() { 52, 262, 514, 115, 104, 117, 118, 119, 540, 110, 116, 113, 114, 542, 111, 112, 105, 106, 107, 496, 498, 524, 549, 550, 555, 595 };
                 var neckIcons = new List<int>() { 523, 101, 623, 509, 101, 500, 3807, 3808, 3809 };
                 var bracerIcons = new List<int>() { 598, 619, 622 };
