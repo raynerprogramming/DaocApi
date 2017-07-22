@@ -190,12 +190,6 @@ namespace FileGenerator
                 }
                 var categories = items.items.Select(x => x.category).Distinct().ToList();
                 var realms = items.items.Select(x => x.realm).Distinct().ToList();
-                var legs = items.items.Where(x => x.category == 2 && x.type_data.slot == 7);
-                var arms = items.items.Where(x => x.category == 2 && x.type_data.slot == 8);
-                var helms = items.items.Where(x => x.category == 2 && x.type_data.slot == 1);
-                var boots = items.items.Where(x => x.category == 2 && x.type_data.slot == 3);
-                var hands = items.items.Where(x => x.category == 2 && x.type_data.slot == 2);
-                var chests = items.items.Where(x => x.category == 2 && x.type_data.slot == 5);
 
                 //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "items");
                 var path = @"C:\Users\Matt\Documents\GitHub\DaocApi\DaocApi\src\assets";
@@ -210,6 +204,22 @@ namespace FileGenerator
                 var bracerIcons = new List<int>() { 598, 619, 622 };
                 var beltIcons = new List<int>() { 597 };
                 var ringIcons = new List<int>() { 103, 2524, 515 };
+
+                var legs = items.items.Where(x => x.category == 2 && x.type_data.slot == 7).ToList();
+                WriteItemsToFile(legs, Path.Combine(path, "AllLegs.json"));
+                var arms = items.items.Where(x => x.category == 2 && x.type_data.slot == 8).ToList();
+                WriteItemsToFile(arms, Path.Combine(path, "AllArms.json"));
+                var helms = items.items.Where(x => x.category == 2 && x.type_data.slot == 1).ToList();
+                WriteItemsToFile(helms, Path.Combine(path, "AllHelms.json"));
+                var boots = items.items.Where(x => x.category == 2 && x.type_data.slot == 3).ToList();
+                WriteItemsToFile(boots, Path.Combine(path, "AllBoots.json"));
+                var hands = items.items.Where(x => x.category == 2 && x.type_data.slot == 2).ToList();
+                WriteItemsToFile(hands, Path.Combine(path, "AllHands.json"));
+                var chests = items.items.Where(x => x.category == 2 && x.type_data.slot == 5).ToList();
+                WriteItemsToFile(chests, Path.Combine(path, "AllChests.json"));
+
+                var myths = items.items.Where(x => x.category == 8).ToList();
+                WriteItemsToFile(chests, Path.Combine(path, "AllMythirians.json"));
 
                 var mappedIcons = jewelIcons.Concat(neckIcons).Concat(bracerIcons).Concat(beltIcons).Concat(ringIcons);
 
@@ -227,7 +237,7 @@ namespace FileGenerator
                 var bracers = items.items.Where(x => x.category == 5 && bracerIcons.Any(y => y == x.icon)).ToList();
                 WriteItemsToFile(bracers, Path.Combine(path, "AllBracers.json"));
                 var twohand = items.items.Where(x => x.category == 1 && x.type_data.two_handed == 1).ToList();
-                WriteItemsToFile(twohand, Path.Combine(path, "AllJTwoHand.json"));
+                WriteItemsToFile(twohand, Path.Combine(path, "AllTwoHand.json"));
                 var onehand = items.items.Where(x => x.category == 1 && x.type_data.two_handed == 0 && x.type_data.left_handed == 0).ToList();
                 WriteItemsToFile(onehand, Path.Combine(path, "AllOneHand.json"));
                 var lefthand = items.items.Where(x => x.category == 1 && x.type_data.two_handed == 0 && x.type_data.left_handed == 1).ToList();
