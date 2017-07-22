@@ -241,7 +241,7 @@ namespace FileGenerator
                 var onehand = items.items.Where(x => x.category == 1 && x.type_data.two_handed == 0 && x.type_data.left_handed == 0).ToList();
                 WriteItemsToFile(onehand, Path.Combine(path, "AllOneHand.json"));
                 var lefthand = items.items.Where(x => x.category == 1 && x.type_data.two_handed == 0 && x.type_data.left_handed == 1).ToList();
-                WriteItemsToFile(lefthand, Path.Combine(path, "AllLefthand.json"));
+                WriteItemsToFile(lefthand, Path.Combine(path, "AllLeftHand.json"));
                 var ranged = items.items.Where(x => x.category == 1 && x.type_data.range.HasValue).ToList();
                 WriteItemsToFile(ranged, Path.Combine(path, "AllRanged.json"));
 

@@ -1,5 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-{{results}}
-</div>
-
+<div class='card blue-grey darken-4'>Items</div>
+<ul>    
+    <li *ngFor="let item of belts">        
+        <item-slot [item]="item"></item-slot>
+    </li>
+</ul>

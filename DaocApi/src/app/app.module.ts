@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ItemSlotComponent } from './item-slot.component';
 import { ItemService }         from './item.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, ItemSlotComponent
   ],
   imports: [
     BrowserModule, HttpModule
