@@ -1,35 +1,36 @@
 <div class="container left blue-grey darken-3" style="max-width:50%">
     <div class="row">
-        <item-slot *ngIf="belts" [item]="belts[0]" class="col s3 left"></item-slot>
-        <item-slot *ngIf="belts" [size]="0" [item]="belts[0]"  class="col s2"></item-slot>
-        <item-slot *ngIf="belts" [size]="0" [item]="belts[0]"  class="col s2"></item-slot>
-        <item-slot *ngIf="belts" [size]="0" [item]="belts[0]"  class="col s2"></item-slot>
-        <item-slot *ngIf="belts" [item]="belts[0]"  class="col s3 right"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(0)" [item]="belts[0]" slot="0" class="col s3 left"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(6)" [size]="0" [item]="belts[0]" slot="6"  class="col s2"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(18)" [size]="0" [item]="belts[0]" slot="18" class="col s2"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(7)" [size]="0" [item]="belts[0]" slot="7"  class="col s2"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(1)" [item]="belts[0]" slot="1"  class="col s3 right"></item-slot>
     </div>
     <div class="row">
-        <item-slot *ngIf="belts" [item]="belts[0]"  class="col s3 left"></item-slot>
-        <item-slot *ngIf="belts" [item]="belts[0]"  class="col s3 right"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(2)" [item]="belts[0]" slot="2"  class="col s3 left"></item-slot>
+        Selected: {{selectedSlot}}
+        <item-slot *ngIf="belts" (click)="selected(3)" [item]="belts[0]" slot="3"  class="col s3 right"></item-slot>
     </div>
     <div class="row">
-        <item-slot *ngIf="belts" [size]="0" [item]="belts[0]"  class="col s2 left"></item-slot>
-        <item-slot *ngIf="belts" [size]="0" [item]="belts[0]"  class="col s2 right"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(8)" [size]="0" [item]="belts[0]" slot="8"  class="col s2 left"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(9)" [size]="0" [item]="belts[0]" slot="9" class="col s2 right"></item-slot>
     </div>
     <div class="row">
-        <item-slot *ngIf="belts" [size]="0" [item]="belts[0]"  class="col s2 left"></item-slot>
-        <item-slot *ngIf="belts" [size]="0" [item]="belts[0]"  class="col s2 right"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(10)" [size]="0" [item]="belts[0]" slot="10" class="col s2 left"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(11)" [size]="0" [item]="belts[0]" slot="11" class="col s2 right"></item-slot>
     </div>
     <div class="row">
-        <item-slot *ngIf="belts" [size]="0" [item]="belts[0]"  class="col s2 left"></item-slot>
-        <item-slot *ngIf="belts" [size]="0" [item]="belts[0]"  class="col s2 right"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(12)" [size]="0" [item]="belts[0]" slot="12" class="col s2 left"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(13)" [size]="0" [item]="belts[0]" slot="13" class="col s2 right"></item-slot>
     </div>
     <div class="row">
-        <item-slot *ngIf="belts" [item]="belts[0]"  class="col s3 left"></item-slot>
-        <item-slot *ngIf="belts" [item]="belts[0]"  class="col s3 right"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(4)" [item]="belts[0]" slot="4"  class="col s3 left"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(5)" [item]="belts[0]" slot="5"  class="col s3 right"></item-slot>
     </div>
     <div class="row">
-        <item-slot *ngIf="belts" [item]="belts[0]"  class="col s3"></item-slot>
-        <item-slot *ngIf="belts" [item]="belts[0]"  class="col s3"></item-slot>
-        <item-slot *ngIf="belts" [item]="belts[0]"  class="col s3"></item-slot>
-        <item-slot *ngIf="belts" [item]="belts[0]"  class="col s3"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(14)" [item]="belts[0]" slot="14"  class="col s3"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(15)" [item]="belts[0]" slot="15" class="col s3"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(16)" [item]="belts[0]" slot="16" class="col s3"></item-slot>
+        <item-slot *ngIf="belts" (click)="selected(17)" [item]="belts[0]" slot="17" class="col s3"></item-slot>
     </div>    
 </div>

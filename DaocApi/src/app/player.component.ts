@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, Input, Output, EventEmitter } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { ItemService } from './item.service';
 import { Item } from './item';
@@ -12,14 +12,24 @@ import 'rxjs/Rx';
 })
 export class PlayerComponent {    
     belts: Array<Object>;
+    selectedSlot: number;
+    @Output() selectedChange: EventEmitter<any> = new EventEmitter();
+
     constructor(private itemService: ItemService) {
 
         console.log("Friends are being called");
-      
+
         itemService.getBelts().subscribe(res => {
             this.belts = res;
         });
+
     }
+
+    selected(slot: number) {
+        this.selectedSlot = slot;
+        this.selectedChange.emit(this.selectedSlot);
+    }
+
     title = 'app';
 
 }

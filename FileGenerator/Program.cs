@@ -218,8 +218,8 @@ namespace FileGenerator
                 var chests = items.items.Where(x => x.category == 2 && x.type_data.slot == 5).ToList();
                 WriteItemsToFile(chests, Path.Combine(path, "AllChests.json"));
 
-                var myths = items.items.Where(x => x.category == 8).ToList();
-                WriteItemsToFile(chests, Path.Combine(path, "AllMythirians.json"));
+                var myths = items.items.Where(x => x.category == 8 && x.name.Contains("Mythirian")).ToList();
+                WriteItemsToFile(myths, Path.Combine(path, "AllMythirians.json"));
 
                 var mappedIcons = jewelIcons.Concat(neckIcons).Concat(bracerIcons).Concat(beltIcons).Concat(ringIcons);
 

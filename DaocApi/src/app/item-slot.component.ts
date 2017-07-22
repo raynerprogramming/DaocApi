@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Directive, Input, OnChanges } from '@angular/core';
 import {Item} from './item';
 
 @Component({
@@ -8,7 +8,9 @@ import {Item} from './item';
 })
 export class ItemSlotComponent implements OnChanges {    
     @Input() item: Item;
+    @Input() slot: number;
     @Input() size: number;
+
     itemname: string;
     constructor() {
         console.log(this.item);
