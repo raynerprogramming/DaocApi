@@ -4,14 +4,13 @@ import { ItemService } from './item.service';
 import { Item } from './item';
 import { Http, Response } from '@angular/http';
 import { Location }                 from '@angular/common';
-
 import 'rxjs/Rx';
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    selector: 'bonus',
+    templateUrl: './bonus.component.html',
+    styleUrls: ['./bonus.component.css']
 })
-export class AppComponent {
+export class BonusComponent {
     
     chests: Array<Object>;
     helms: Array<Object>;
@@ -32,56 +31,75 @@ export class AppComponent {
     ranged: Array<Object>;
     constructor(private itemService: ItemService) {
 
+        console.log("Friends are being called");
+
         itemService.getChests().subscribe(res => {
             this.chests = res;
+            console.log(this.chests);
         });
         itemService.getHelms().subscribe(res => {
             this.helms = res;
+            console.log(this.helms);
         });
         itemService.getArms().subscribe(res => {
             this.arms = res;
+            console.log(this.arms);
         });
         itemService.getHands().subscribe(res => {
             this.hands = res;
+            console.log(this.hands);
         });
         itemService.getLegs().subscribe(res => {
             this.legs = res;
+            console.log(this.legs);
         });
         itemService.getBoots().subscribe(res => {
             this.boots = res;
+            console.log(this.boots);
         });
         itemService.getNecks().subscribe(res => {
             this.necks = res;
+            console.log(this.necks);
         });
         itemService.getMythirians().subscribe(res => {
             this.myths = res;
+            console.log(this.myths);
         });
         itemService.getCloaks().subscribe(res => {
             this.cloaks = res;
+            console.log(this.cloaks);
         });
         itemService.getJewels().subscribe(res => {
             this.jewels = res;
+            console.log(this.jewels);
         });
         itemService.getBelts().subscribe(res => {
             this.belts = res;
+            console.log(this.belts);
         });
         itemService.getRings().subscribe(res => {
             this.rings = res;
+            console.log(this.rings);
         });
         itemService.getBracers().subscribe(res => {
             this.bracers = res;
+            console.log(this.bracers);
         });
         itemService.getOneHanders().subscribe(res => {
             this.oneHands = res;
+            console.log(this.oneHands);
         });
         itemService.getLeftHand().subscribe(res => {
             this.leftHands = res;
+            console.log(this.leftHands);
         });
         itemService.getTwoHanders().subscribe(res => {
             this.twoHands = res;
+            console.log(this.twoHands);
         });
         itemService.getRanged().subscribe(res => {
             this.ranged = res;
+            console.log(this.ranged);
         });
     }
     title = 'app';

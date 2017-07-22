@@ -1,0 +1,11 @@
+.itemcard{
+    width:80%;
+    margin-left:5%;
+}
+.itemlist{
+    background-color:aqua;
+    width:90%;
+    padding:10px;
+    border-radius: 10px;
+    overflow-y:scroll;
+}

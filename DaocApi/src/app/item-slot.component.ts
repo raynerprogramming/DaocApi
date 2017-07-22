@@ -8,6 +8,7 @@ import {Item} from './item';
 })
 export class ItemSlotComponent implements OnChanges {    
     @Input() item: Item;
+    @Input() size: number;
     itemname: string;
     constructor() {
         console.log(this.item);

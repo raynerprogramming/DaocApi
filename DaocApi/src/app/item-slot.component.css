@@ -3,6 +3,13 @@
     width:8rem;
     margin:auto;
     overflow: hidden;
+    border-radius:5%;
+}
+.itemslotsmall {
+    height:5rem;
+    width:5rem;
+    margin:auto;
+    overflow: hidden;
     border-radius: 2.5%;
 }
 

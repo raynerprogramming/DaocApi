@@ -1,4 +1,3 @@
-<div class="itemslot card grey darken-4 ">
-    <div class="circle white darken-3 item">{{item.name}}</div>
+<div [ngClass]="(size=='0')?'itemslotsmall':'itemslot'" class="card grey darken-4 ">
+    <div class="circle yellow lighten-5 item">{{item.name}}</div>
 </div>
->

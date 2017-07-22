@@ -1,6 +1,4 @@
-<div class='card blue-grey darken-4'>Items</div>
-<ul>    
-    <li *ngFor="let item of belts">        
-        <item-slot [item]="item"></item-slot>
-    </li>
-</ul>
+<div>
+    <player></player>
+    <item-list [items]="belts" [current]="belts[0]" category="Belts"></item-list>
+</div>

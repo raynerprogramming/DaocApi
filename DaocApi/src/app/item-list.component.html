@@ -1,0 +1,18 @@
+<div class="container left blue-grey darken-2" style="max-width:50%">
+     <h1>{{category}}</h1>
+    <div class="card itemcard">
+        <h5>{{current.name}}(Equipped)</h5>
+        <div *ngFor="let bonus of current.mappedBonuses">
+            {{bonus.Text}}: {{bonus.Value}}
+        </div>
+    </div>
+    <div class="container itemlist yellow lighten-5 ">
+        <div *ngFor="let item of items" class="card itemcard">
+            <h5>{{item.name}}</h5>
+            <div *ngFor="let bonus of item.mappedBonuses">
+                {{bonus.Text}}: {{bonus.Value}}
+            </div>
+        </div>
+    </div>
+     
+</div>
