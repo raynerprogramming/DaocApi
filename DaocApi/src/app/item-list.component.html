@@ -1,25 +1,19 @@
 <div class="container left blue-grey darken-2" style="max-width:50%">
-    <h1>{{category}} {{selectedSlot}} {{selectedBonus.label}} {{selectedChildBonus.label}} {{bonus}}</h1>
+    <h1>{{category}} {{selectedSlot}} {{selectedBonus['label']}} {{selectedChildBonus['label']}} {{bonus}}</h1>
     <div>
         <h3>Filters:</h3>
         <div class="input-field inline">
             <input id="name" type="text" class="validate">
             <label for="name" data-error="wrong" data-success="right">Name</label>
         </div>
-        <select [(ngModel)]="test">
-            <option [ngValue]="test1">test1</option>
-            <option [ngValue]="test2">test2</option>
-            <option [ngValue]="test3">test3</option>
-        </select>
-
         <div class="row">
             <select [(ngModel)]="selectedBonus" class="browser-default" (ngModelChange)="onChange($event)" materialize="material_select">
-                <option *ngFor="let bonus of bonuses" [ngValue]="bonus">{{bonus.label}}</option>
+                <option *ngFor="let bonus of bonuses" [ngValue]="bonus">{{bonus['label']}}</option>
             </select>
             <label>Bonus Category</label>
-            <div *ngIf="selectedBonus && selectedBonus.childBonuses">
+            <div *ngIf="selectedBonus && selectedBonus['childBonuses']">
                 <select [(ngModel)]="selectedChildBonus" class="browser-default" materialize="material_select">
-                    <option *ngFor="let childBonus of selectedBonus.childBonuses" [ngValue]="childBonus">{{childBonus.label}}</option>
+                    <option *ngFor="let childBonus of selectedBonus['childBonuses']" [ngValue]="childBonus">{{childBonus['label']}}</option>
                 </select>
                 <label>Optgroups</label>
             </div>
@@ -28,6 +22,7 @@
         <div class="row">
             <div *ngFor="let filter of filters" class="chip">                
                 {{filter}}
+                <i class="close material-icons" (click)="removeFilter(filter)">close</i>
             </div>
         </div>
     </div>

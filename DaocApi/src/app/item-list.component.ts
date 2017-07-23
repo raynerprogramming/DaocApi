@@ -50,12 +50,23 @@ export class ItemListComponent implements OnChanges {
         console.log(this.category);
     }
 
-    onChange($event){
+    onChange($event) {
         this.selectedChildBonus = {};
     }
 
     addFilter() {
-        this.filters.push('filter');
+        if (this.selectedBonus && this.selectedBonus['childBonuses'] && this.selectedChildBonus['label']) {
+            var filter = this.selectedBonus['label'] + ' ' + this.selectedChildBonus['label'];
+            if (this.filters.find(x=> x == filter) == null) {
+                this.filters.push(filter);
+            }
+        }
+    }
+    removeFilter(filter: string) {
+        let index = this.filters.indexOf(filter);
+        if (index !== -1) {
+            this.filters.splice(index, 1);
+        }  
     }
     title = 'app';
 
