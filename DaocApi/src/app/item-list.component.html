@@ -6,7 +6,7 @@
             <input id="name" type="text" class="validate">
             <label for="name" data-error="wrong" data-success="right">Name</label>
         </div>
-        <div class="row">
+        <div class="addmargin row ">
             <select [(ngModel)]="selectedBonus" class="browser-default" (ngModelChange)="onChange($event)" materialize="material_select">
                 <option *ngFor="let bonus of bonuses" [ngValue]="bonus">{{bonus['label']}}</option>
             </select>
@@ -19,21 +19,21 @@
             </div>
             <a class="waves-effect waves-light btn-large" (click)="addFilter()"><i class="material-icons left">add</i>button</a>
         </div>
-        <div class="row">
+        <div class="row addmargin">
             <div *ngFor="let filter of filters" class="chip">                
-                {{filter}}
+                {{filter.label}}
                 <i class="close material-icons" (click)="removeFilter(filter)">close</i>
             </div>
         </div>
     </div>
-    <div *ngIf="current" class="card itemcard">
-        <h5>{{current.name}}(Equipped)</h5>
-        <div *ngFor="let bonus of current.mappedBonuses">
+    <div *ngIf="current[selectedSlot]" class="card itemcard">
+        <h5>{{current[selectedSlot].name}}(Equipped)</h5>
+        <div *ngFor="let bonus of current[selectedSlot].mappedBonuses">
             {{bonus.Text}}: {{bonus.Value}}
         </div>
     </div>
     <div class="container itemlist yellow lighten-5 ">
-        <div (click)="current=item" *ngFor="let item of items" class="card itemcard">
+        <div (click)="current[selectedSlot]=item" *ngFor="let item of filteredItems" class="card itemcard">
             <h5>{{item.name}}</h5>
             <div *ngFor="let bonus of item.mappedBonuses">
                 {{bonus.Text}}: {{bonus.Value}}

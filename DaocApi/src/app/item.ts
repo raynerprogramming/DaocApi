@@ -40,7 +40,7 @@ export class Item {
     realm: number;
     icon: number;
     material: number;
-    savlage_amount: number;
+    salvage_amount: number;
     artifact: boolean;
     sell_value: number;
     flags: ItemFlags;

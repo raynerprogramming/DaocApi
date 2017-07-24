@@ -1,6 +1,6 @@
 <div class="row">
     Selected:{{selectedSlot}}
 </div><div>
-    <player (selectedChange)="changeSelected($event)"></player>
-    <item-list [items]="items[selectedSlot]" [current]="equipped[selectedSlot]" [selectedSlot]="selectedSlot" category="Belts"></item-list>
+    <player [equipped]="equipped" (selectedChange)="changeSelected($event)"></player>
+    <item-list [items]="items[selectedSlot]" [current]="equipped" [selectedSlot]="selectedSlot" category="Belts"></item-list>
 </div>

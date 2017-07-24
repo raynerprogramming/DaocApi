@@ -14,6 +14,7 @@ import 'rxjs/Rx';
 export class AppComponent {
     equipped: Array<Item> = [];
     selectedSlot: number;
+    default: Item;
 
     items: Array<Array<Object>> = [];
     
@@ -42,6 +43,7 @@ export class AppComponent {
         itemService.getChests().subscribe(res => {
             this.items[0] = res;
             this.chests = res;
+            this.default = this.chests[0] as Item;
         });
         itemService.getHelms().subscribe(res => {
             this.items[1] = res;

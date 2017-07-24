@@ -10,3 +10,8 @@
     overflow-y:scroll;
     max-height:75vh;
 }
+
+.addmargin{
+    margin-left:.75rem !important;
+    margin-right:.75rem !important;
+}
