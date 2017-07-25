@@ -4,6 +4,7 @@ import { ItemService } from './item.service';
 import { Item } from './item';
 import { Http, Response } from '@angular/http';
 import { Location }                 from '@angular/common';
+import { Realm } from './Realm';
 import 'rxjs/Rx';
 @Component({
     selector: 'player',
@@ -14,10 +15,23 @@ export class PlayerComponent {
     belts: Array<Object>;
     selectedSlot: number;
     default: Item;
+    realms: Realm[];
+    realm: Realm;
     @Input() equipped: Item[];
     @Output() selectedChange: EventEmitter<any> = new EventEmitter();
+    @Output() realmChange: EventEmitter<any> = new EventEmitter();
 
     constructor(private itemService: ItemService) {
+        this.realms = [{
+            name: "Albion",
+            id: 0
+        }, {
+                name: "Midgard",
+                id: 1
+            }, {
+                name: "Hibernia",
+                id: 2
+            }]
 
         this.default = {
             id: -1, name: 'None Equipped',
@@ -67,6 +81,11 @@ export class PlayerComponent {
     selected(slot: number) {
         this.selectedSlot = slot;
         this.selectedChange.emit(this.selectedSlot);
+    }
+
+    selectedRealm(realm: Realm) {
+        this.realm = realm;
+        this.realmChange.emit(this.realm);
     }
 
     getItem(slot: number) {

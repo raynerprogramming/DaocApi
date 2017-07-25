@@ -88,6 +88,10 @@ export class ItemListComponent implements OnChanges {
                     if (filter.bonustype == -1 && itembonus.type == filter.bonustypes[0]) {
                         found = true;
                     }
+
+                    if (filter.bonustype == itembonus.type && !filter.bonustypes) {
+                        found = true;
+                    }
                 }
                 add = add && found;
             }

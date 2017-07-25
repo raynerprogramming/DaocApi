@@ -14,6 +14,7 @@ import 'rxjs/Rx';
 export class AppComponent {
     equipped: Array<Item> = [];
     selectedSlot: number;
+    selectedRealm: number;
     default: Item;
 
     items: Array<Array<Object>> = [];
@@ -111,10 +112,20 @@ export class AppComponent {
             this.items[17] = res;
             this.ranged = res;
         });
+
+
+    }
+
+    getRealmItems(baseItems:Item[]) {
+        return baseItems.filter(x=> x.realm == this.selectedRealm);
     }
 
     changeSelected($event) {
         this.selectedSlot = $event;
+        console.log($event);
+    }
+    changeRealm($event) {
+        this.selectedRealm = $event;
         console.log($event);
     }
     title = 'app';
