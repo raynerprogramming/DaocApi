@@ -10,7 +10,9 @@ namespace FileGenerator
     {
         public DaocEnums.Attributes Attr { get; set; }
 
-        public AttributeBonus(DaocEnums.bonustype type, int? max, string text, bool isPvE, DaocEnums.Attributes attr) : base(type,max,text, isPvE)
+
+
+        public AttributeBonus(DaocEnums.bonustype type, int? max, string text, bool isPvE, DaocEnums.Attributes attr) : base(type,max,text, isPvE,(double)2/3,2)
         {
             Attr = attr;
         }

@@ -53,4 +53,6 @@ export class Item {
     bonus_level: number;
     dye_type: number;
     delve_text: string;
+    toa_utility: number;
+    utility: number;
 }

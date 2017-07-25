@@ -8,6 +8,7 @@ import { ItemSlotComponent } from './item-slot.component';
 import { PlayerComponent } from './player.component';
 import { BonusComponent } from './bonus.component';
 import { ItemListComponent } from './item-list.component';
+import { ItemCardComponent } from './item-card.component';
 import { ItemService }         from './item.service';
 import { FormsModule, ReactiveFormsModule}   from '@angular/forms';
 import 'jquery'
@@ -15,7 +16,7 @@ import 'jquery'
 
 @NgModule({
   declarations: [
-      AppComponent, ItemSlotComponent, PlayerComponent, BonusComponent, ItemListComponent
+      AppComponent, ItemSlotComponent, PlayerComponent, BonusComponent, ItemListComponent, ItemCardComponent
   ],
   imports: [
       BrowserModule, HttpModule, MaterializeModule, FormsModule, ReactiveFormsModule

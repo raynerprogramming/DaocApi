@@ -1,0 +1,9 @@
+<div class="card itemcard">
+    <h5>{{item.name}}</h5>
+    <div *ngFor="let bonus of item.mappedBonuses">
+        {{bonus.Text}}: {{bonus.Value}}
+    </div>
+    <div>
+        Utility:{{item.utility}}  ToA Utility: {{item.toa_utility}}
+    </div>
+</div>

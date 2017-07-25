@@ -69,6 +69,7 @@ namespace FileGenerator
         public int bonus_level { get; set; }
         public int? dye_type { get; set; }
         public string delve_text { get; set; }
-
+        public double? utility { get; set; }
+        public double? toa_utility { get; set; }
     }
 }

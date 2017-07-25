@@ -13,7 +13,7 @@ namespace FileGenerator
         public class Items
         {
             public List<Item> items { get; set; }
-            
+
         }
 
 
@@ -32,11 +32,13 @@ namespace FileGenerator
             if (b.type == (int)DaocEnums.bonustype.Attribute)
             {
                 var AttributeList = GetBonusList().Where(x => x.Type == DaocEnums.bonustype.Attribute).ToList();
-                foreach(var bonus in AttributeList)
+                foreach (var bonus in AttributeList)
                 {
-                    if((int)(bonus as AttributeBonus).Attr == b.id)
+                    if ((int)(bonus as AttributeBonus).Attr == b.id)
                     {
                         bonus.Value = b.value;
+                        bonus.Utility = bonus.Utility * b.value;
+                        bonus.ToAUtility = bonus.ToAUtility * b.value;
                         return bonus;
                     }
                 }
@@ -50,16 +52,20 @@ namespace FileGenerator
                     if ((int)(bonus as ResistanceBonus).Res == b.id)
                     {
                         bonus.Value = b.value;
+                        bonus.Utility = bonus.Utility * b.value;
+                        bonus.ToAUtility = bonus.ToAUtility * b.value;
                         return bonus;
                     }
                 }
                 return null;
             }
-            else 
+            else
             {
-                
-                 var bonus= bonusList.Where(x => x.Type == (DaocEnums.bonustype)b.type).First();
+
+                var bonus = bonusList.Where(x => x.Type == (DaocEnums.bonustype)b.type).First();
                 bonus.Value = b.value;
+                bonus.Utility = bonus.Utility * b.value;
+                bonus.ToAUtility = bonus.ToAUtility * b.value;
                 return bonus;
             }
         }
@@ -68,35 +74,35 @@ namespace FileGenerator
         {
             return new List<BaseBonus>() {
                 //new BaseBonus(DaocEnums.bonustype.Attribute,75,"Attribute", false),
-                new BaseBonus(DaocEnums.bonustype.Skill, 11, "Skill", false),
-                new BaseBonus(DaocEnums.bonustype.Hits, 200, "Hits", false),
+                new BaseBonus(DaocEnums.bonustype.Skill, 11, "Skill", false,5,5),
+                new BaseBonus(DaocEnums.bonustype.Hits, 200, "Hits", false,.25,.25),
                 //new BaseBonus(DaocEnums.bonustype.Resistance,  26, "Resistance", false),
-                new BaseBonus(DaocEnums.bonustype.Focus,  50, "Focus", false),
-                new BaseBonus(DaocEnums.bonustype.MeleeDamage,  10, "Melee Damage", false),
-                new BaseBonus(DaocEnums.bonustype.MagicDamage,  10, "Magic Damage", false),
-                new BaseBonus(DaocEnums.bonustype.StyleDamage,  10, "Style Damage", false),
-                new BaseBonus(DaocEnums.bonustype.ArcheryRange,  10, "Archery Range", false),
-                new BaseBonus(DaocEnums.bonustype.SpellRange,  10, "Spell Range", false),
-                new BaseBonus(DaocEnums.bonustype.SpellDuration,  25, "Spell Duration", false),
-                new BaseBonus(DaocEnums.bonustype.Healing,  25, "Healing Effectiveness", false),
-                new BaseBonus(DaocEnums.bonustype.StatDebuff,  25, "Stat Debuff Effectiveness", false),
-                new BaseBonus(DaocEnums.bonustype.StatBuff,  25, "Stat Buff Effectiveness", false),
-                new BaseBonus(DaocEnums.bonustype.Fatigue,  null, "Fatigue", false),
-                new BaseBonus(DaocEnums.bonustype.MeleeSpeed,  10, "Melee Speed", false),
-                new BaseBonus(DaocEnums.bonustype.ArcherySpeed,  10, "Archery Speed", false),
-                new BaseBonus(DaocEnums.bonustype.CastingSpeed,  10, "Casting Speed", false),
-                new BaseBonus(DaocEnums.bonustype.AF,  50, "Armor Factor", false),
+                new BaseBonus(DaocEnums.bonustype.Focus,  50, "Focus", false,0,0),
+                new BaseBonus(DaocEnums.bonustype.MeleeDamage,  10, "Melee Damage", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.MagicDamage,  10, "Magic Damage", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.StyleDamage,  10, "Style Damage", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.ArcheryRange,  10, "Archery Range", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.SpellRange,  10, "Spell Range", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.SpellDuration,  25, "Spell Duration", false,0,2),
+                new BaseBonus(DaocEnums.bonustype.Healing,  25, "Healing Effectiveness", false,0,2),
+                new BaseBonus(DaocEnums.bonustype.StatDebuff,  25, "Stat Debuff Effectiveness", false,0,2),
+                new BaseBonus(DaocEnums.bonustype.StatBuff,  25, "Stat Buff Effectiveness", false,0,2),
+                new BaseBonus(DaocEnums.bonustype.Fatigue,  null, "Fatigue", false,0,2),
+                new BaseBonus(DaocEnums.bonustype.MeleeSpeed,  10, "Melee Speed", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.ArcherySpeed,  10, "Archery Speed", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.CastingSpeed,  10, "Casting Speed", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.AF,  50, "Armor Factor", false,0,1),
                 new BaseBonus(DaocEnums.bonustype.CraftMinQuality,  null, "Increases Minimum Crafting Quality", false),
                 new BaseBonus(DaocEnums.bonustype.CraftQuality,  null, "Increases Craft Quality", false),
                 new BaseBonus(DaocEnums.bonustype.CraftSpeed,  null, "Increase Craft speed", false),
                 new BaseBonus(DaocEnums.bonustype.CraftSkillIncrease,  null, "Increases Chance of Craft Skill Up", false),
-                new BaseBonus(DaocEnums.bonustype.ArcheryDamage,  10, "Archery Damage", false),
-                new BaseBonus(DaocEnums.bonustype.StatCap,  26, "Stat Cap", false),
-                new BaseBonus(DaocEnums.bonustype.HitsCap,  200, "Hits Cap", false),
-                new BaseBonus(DaocEnums.bonustype.PowerCap,  50, "Power Cap", false),
-                new BaseBonus(DaocEnums.bonustype.FatigueCap,  null, "Fatigue Cap", false),
-                new BaseBonus(DaocEnums.bonustype.SpellPierce,  10, "Spell Pierce", false),
-                new BaseBonus(DaocEnums.bonustype.PowerPool,  25, "Power Pool", false),
+                new BaseBonus(DaocEnums.bonustype.ArcheryDamage,  10, "Archery Damage", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.StatCap,  26, "Stat Cap", false,0,2),
+                new BaseBonus(DaocEnums.bonustype.HitsCap,  200, "Hits Cap", false,0,.25),
+                new BaseBonus(DaocEnums.bonustype.PowerCap,  50, "Power Cap", false,0,2),
+                new BaseBonus(DaocEnums.bonustype.FatigueCap,  null, "Fatigue Cap", false,0,2),
+                new BaseBonus(DaocEnums.bonustype.SpellPierce,  10, "Spell Pierce", false,0,5),
+                new BaseBonus(DaocEnums.bonustype.PowerPool,  25, "Power Pool", false,0,2),
                 new BaseBonus(DaocEnums.bonustype.ArcaneSiphon,  20, "Arcane Siphon", false),
                 new BaseBonus(DaocEnums.bonustype.PowerCostReductionPvE,  null, "Power Cost Reduction", true),
                 new BaseBonus(DaocEnums.bonustype.Concentration,  null, "Concentration", false),
@@ -114,22 +120,22 @@ namespace FileGenerator
                 new BaseBonus(DaocEnums.bonustype.EvadePvE,  null, "Increase the chance to Evade", true),
                 new BaseBonus(DaocEnums.bonustype.ReactStyleDmgPvE,  null, "Increases the damage of reactionary styles", true),
                 new BaseBonus(DaocEnums.bonustype.MythicalEncumbrance,  null, "Mythical Encumbrance", false),
-                new BaseBonus(DaocEnums.bonustype.MythicalResCap,  null, "Mythical Resistance Cap", false),
+                new BaseBonus(DaocEnums.bonustype.MythicalResCap,  null, "Mythical Resistance Cap", false,0,2),
                 new BaseBonus(DaocEnums.bonustype.MythicalSiegeSpeed,  null, "Mythical Siege Speed", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalParry,  null, "Mythical Parry", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalEvade,  null, "Mythical Evade", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalBlock,  null, "Mythical Block", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalCoin,  null, "Mythical Coin", false),
-                new BaseBonus(DaocEnums.bonustype.MythicalStatCap,  26, "Mythical Attribute Cap Increase", false),
+                new BaseBonus(DaocEnums.bonustype.MythicalStatCap,  26, "Mythical Attribute Cap Increase", false,0,2),
                 new BaseBonus(DaocEnums.bonustype.MythicalCrowdControlDurationDecrease,  null, "Mythical Crowd Control Duration Decrease", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalEssenceResist,  null, "Mythical Essence Resist", false),
-                new BaseBonus(DaocEnums.bonustype.MythicalResCapStat,  null, "Mythical Resistance Cap Increase", false),
+                new BaseBonus(DaocEnums.bonustype.MythicalResCapStat,  null, "Mythical Resistance Cap Increase", false,2,4),
                 new BaseBonus(DaocEnums.bonustype.MythicalSiegeAblative,  null, "Mythical Siege Ablative", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalDPS,  null, "Mythical DPS", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalRPS,  null, "Mythical Realm Points", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalStatIncrease,  null, "Mythical Stat Increase", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalResSickReduction,  null, "Mythical Ressurection Sickness Reduction", false),
-                new BaseBonus(DaocEnums.bonustype.MythicalStatCapStat,  null, "Mythical Stat and Cap Increase", false),
+                new BaseBonus(DaocEnums.bonustype.MythicalStatCapStat,  null, "Mythical Stat and Cap Increase", false,2,4),
                 new BaseBonus(DaocEnums.bonustype.MythicalHealthRegen,  null, "Mythical Health Regen", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalPowRegen,  null, "Mythical Power Regen", false),
                 new BaseBonus(DaocEnums.bonustype.MythicalEndoRegen,  null, "Mythical Endurance Regen", false),
@@ -176,16 +182,22 @@ namespace FileGenerator
 
                 foreach (Item item in items.items)
                 {
-                    if(item.name=="Poor Sod's Belt")
-                    {
-                        var asd = 12;
-                    }
                     if (item.bonuses != null)
                     {
                         foreach (var bonus in item.bonuses)
                         {
                             item.mappedBonuses.Add(FindMappedBonus(bonus));
                         }
+                    }
+                    if (item.mappedBonuses.Where(b=>b!= null).Count() > 1)
+                    {
+                        item.utility = item.mappedBonuses.Where(b => b != null).Sum(b => b.Utility);
+                        item.toa_utility = item.mappedBonuses.Where(b => b != null).Sum(b => b.ToAUtility);
+                    }
+                    else
+                    {
+                        item.utility = 0;
+                        item.toa_utility = 0;
                     }
                 }
                 var categories = items.items.Select(x => x.category).Distinct().ToList();
@@ -198,7 +210,7 @@ namespace FileGenerator
                 var distinctBonuses = notNullItems.SelectMany(x => x.bonuses.Select(y => y.type).Distinct().ToList()).OrderBy(x => x).Distinct().ToList();
                 var distinctResBonuses = notNullItems.Select(b => b.bonuses).ToList();// x.Select(y => y.type.GetValueOrDefault() == 5)).ToList();//.SelectMany(z => z.Select(a => a.id)).Distinct().ToList();
                                                                                       // var distintResBonuses = items.items.Where(x => x.bonuses != null).Where(x.bonuses.Select.SelectMany(x => x.bonuses.Select(y => y.id).Distinct().ToList()).OrderBy(x => x).Distinct().ToList();
-               // var bonuses = distinctResBonuses.SelectMany(x => x.Where(y => y.type == 5)).OrderBy(a => a.id).Where(z => z.id).Distinct().ToList();
+                                                                                      // var bonuses = distinctResBonuses.SelectMany(x => x.Where(y => y.type == 5)).OrderBy(a => a.id).Where(z => z.id).Distinct().ToList();
                 var jewelIcons = new List<int>() { 52, 262, 514, 115, 104, 117, 118, 119, 540, 110, 116, 113, 114, 542, 111, 112, 105, 106, 107, 496, 498, 524, 549, 550, 555, 595 };
                 var neckIcons = new List<int>() { 523, 101, 623, 509, 101, 500, 3807, 3808, 3809 };
                 var bracerIcons = new List<int>() { 598, 619, 622 };

@@ -26,18 +26,12 @@
             </div>
         </div>
     </div>
-    <div *ngIf="current[selectedSlot]" class="card itemcard">
-        <h5>{{current[selectedSlot].name}}(Equipped)</h5>
-        <div *ngFor="let bonus of current[selectedSlot].mappedBonuses">
-            {{bonus.Text}}: {{bonus.Value}}
-        </div>
+    <div *ngIf="current[selectedSlot]">
+        <item-card [item]="current[selectedSlot]"></item-card>
     </div>
     <div class="container itemlist yellow lighten-5 ">
-        <div (click)="current[selectedSlot]=item" *ngFor="let item of filteredItems" class="card itemcard">
-            <h5>{{item.name}}</h5>
-            <div *ngFor="let bonus of item.mappedBonuses">
-                {{bonus.Text}}: {{bonus.Value}}
-            </div>
+        <div (click)="current[selectedSlot]=item" *ngFor="let item of filteredItems">
+            <item-card [item]="item"></item-card>
         </div>
     </div>
 
