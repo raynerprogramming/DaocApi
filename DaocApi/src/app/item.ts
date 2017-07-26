@@ -24,17 +24,18 @@ export class TypeData {
     slot: number;
 }
 
-export class MappedBonus {
-    MythicType: number;
-    MythicId: number;
-    MythicValue: number;
-    Type: string;
-    Name: string;
-    Value: string;
+export interface MappedBonus {
+    MythicType?: number;
+    MythicId?: number;
+    MythicValue?: number;
+    Type?: string;
+    Name?: string;
+    Value?: string;
+    Text: String;
 }
 
-export class Item {
-    id: number;
+export interface Item {
+    id?: number;
     name: string;
     category: number;
     realm: number;
@@ -45,7 +46,7 @@ export class Item {
     sell_value: number;
     flags: ItemFlags;
     bonuses: Bonus[];
-    mappedBonus: MappedBonus[];
+    mappedBonuses?: MappedBonus[];
     type_data: TypeData;
     sources: string[];
     requirements: number;
@@ -54,5 +55,5 @@ export class Item {
     dye_type: number;
     delve_text: string;
     toa_utility: number;
-    utility: number;
+    utility:number;
 }

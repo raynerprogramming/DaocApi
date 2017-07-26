@@ -15,6 +15,7 @@ export class AppComponent {
     equipped: Array<Item> = [];
     selectedSlot: number;
     selectedRealm: number;
+
     default: Item;
 
     items: Array<Array<Object>> = [];
@@ -128,6 +129,8 @@ export class AppComponent {
         this.selectedRealm = $event;
         console.log($event);
     }
+
+
     title = 'app';
 
 }

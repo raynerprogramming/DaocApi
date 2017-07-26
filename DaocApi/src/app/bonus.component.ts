@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChange  } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { ItemService } from './item.service';
 import { Item } from './item';
@@ -10,98 +10,33 @@ import 'rxjs/Rx';
     templateUrl: './bonus.component.html',
     styleUrls: ['./bonus.component.css']
 })
-export class BonusComponent {
-    
-    chests: Array<Object>;
-    helms: Array<Object>;
-    arms: Array<Object>;
-    hands: Array<Object>;
-    legs: Array<Object>;
-    boots: Array<Object>;
-    necks: Array<Object>;
-    myths: Array<Object>;
-    cloaks: Array<Object>;
-    jewels: Array<Object>;
-    belts: Array<Object>;
-    rings: Array<Object>;
-    bracers: Array<Object>;
-    oneHands: Array<Object>;
-    leftHands: Array<Object>;
-    twoHands: Array<Object>;
-    ranged: Array<Object>;
+export class BonusComponent implements OnChanges {
+    @Input() equipped: Item[];
+
+
     constructor(private itemService: ItemService) {
-
-        console.log("Friends are being called");
-
-        itemService.getChests().subscribe(res => {
-            this.chests = res;
-            console.log(this.chests);
-        });
-        itemService.getHelms().subscribe(res => {
-            this.helms = res;
-            console.log(this.helms);
-        });
-        itemService.getArms().subscribe(res => {
-            this.arms = res;
-            console.log(this.arms);
-        });
-        itemService.getHands().subscribe(res => {
-            this.hands = res;
-            console.log(this.hands);
-        });
-        itemService.getLegs().subscribe(res => {
-            this.legs = res;
-            console.log(this.legs);
-        });
-        itemService.getBoots().subscribe(res => {
-            this.boots = res;
-            console.log(this.boots);
-        });
-        itemService.getNecks().subscribe(res => {
-            this.necks = res;
-            console.log(this.necks);
-        });
-        itemService.getMythirians().subscribe(res => {
-            this.myths = res;
-            console.log(this.myths);
-        });
-        itemService.getCloaks().subscribe(res => {
-            this.cloaks = res;
-            console.log(this.cloaks);
-        });
-        itemService.getJewels().subscribe(res => {
-            this.jewels = res;
-            console.log(this.jewels);
-        });
-        itemService.getBelts().subscribe(res => {
-            this.belts = res;
-            console.log(this.belts);
-        });
-        itemService.getRings().subscribe(res => {
-            this.rings = res;
-            console.log(this.rings);
-        });
-        itemService.getBracers().subscribe(res => {
-            this.bracers = res;
-            console.log(this.bracers);
-        });
-        itemService.getOneHanders().subscribe(res => {
-            this.oneHands = res;
-            console.log(this.oneHands);
-        });
-        itemService.getLeftHand().subscribe(res => {
-            this.leftHands = res;
-            console.log(this.leftHands);
-        });
-        itemService.getTwoHanders().subscribe(res => {
-            this.twoHands = res;
-            console.log(this.twoHands);
-        });
-        itemService.getRanged().subscribe(res => {
-            this.ranged = res;
-            console.log(this.ranged);
-        });
     }
     title = 'app';
+
+    getBonus(prop: string) {
+        if (this.equipped && this.equipped[0]) {
+            var allBonus = this.equipped.map(function (a) { return a.mappedBonuses }).reduce(function (a, b) { return a.concat(b) });
+
+            return allBonus.filter(x=> x.Text == prop).map((a) => { return +a.Value }).reduce(function (a, b) { return a + b }, 0);
+        }
+    }
+    ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+        let log: string[] = [];
+        for (let propName in changes) {
+            let changedProp = changes[propName];
+            let to = JSON.stringify(changedProp.currentValue);
+            if (changedProp.isFirstChange()) {
+                log.push(`Initial value of ${propName} set to ${to}`);
+            } else {
+                let from = JSON.stringify(changedProp.previousValue);
+                log.push(`${propName} changed from ${from} to ${to}`);
+            }
+        }
+    }
 
 }

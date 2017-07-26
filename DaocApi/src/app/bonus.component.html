@@ -1,35 +1,28 @@
-<div class="container left blue-grey darken-3" style="max-width:50%">
+<div class="container component left blue-grey darken-3">
     <div class="row">
-        <item-slot [item]="belts[0]" class="col s3 left"></item-slot>
-        <item-slot [size]="0" [item]="belts[0]"  class="col s2"></item-slot>
-        <item-slot [size]="0" [item]="belts[0]"  class="col s2"></item-slot>
-        <item-slot [size]="0" [item]="belts[0]"  class="col s2"></item-slot>
-        <item-slot [item]="belts[0]"  class="col s3 right"></item-slot>
+        <h5>Attributes:</h5>
+        Charisma: {{getBonus("Charisma")}}<br />
+        Constitution: {{getBonus("Constitution")}}<br />
+        Dexterity: {{getBonus("Dexterity")}}<br />
+        Empathy: {{getBonus("Empathy")}}<br />
+        Intelligence: {{getBonus("Intelligence")}}<br />
+        Piety: {{getBonus("Piety")}}<br />
+        Quickness: {{getBonus("Quickness")}}<br />
+        Strength: {{getBonus("Strength")}}<br />
     </div>
     <div class="row">
-        <item-slot [item]="belts[0]"  class="col s3 left"></item-slot>
-        <item-slot [item]="belts[0]"  class="col s3 right"></item-slot>
+        <h5>Resistances:</h5>
+        Body: {{getBonus("Body")}}<br />
+        Cold: {{getBonus("Cold")}}<br />
+        Crush: {{getBonus("Crush")}}<br />
+        Energy: {{getBonus("Energy")}}<br />
+        Heat: {{getBonus("Heat")}}<br />
+        Matter: {{getBonus("Matter")}}<br />
+        Slash: {{getBonus("Slash")}}<br />
+        Spirit: {{getBonus("Spirit")}}<br />
+        Thrust: {{getBonus("Thrust")}}<br />
     </div>
     <div class="row">
-        <item-slot [size]="0" [item]="belts[0]"  class="col s2 left"></item-slot>
-        <item-slot [size]="0" [item]="belts[0]"  class="col s2 right"></item-slot>
-    </div>
-    <div class="row">
-        <item-slot [size]="0" [item]="belts[0]"  class="col s2 left"></item-slot>
-        <item-slot [size]="0" [item]="belts[0]"  class="col s2 right"></item-slot>
-    </div>
-    <div class="row">
-        <item-slot [size]="0" [item]="belts[0]"  class="col s2 left"></item-slot>
-        <item-slot [size]="0" [item]="belts[0]"  class="col s2 right"></item-slot>
-    </div>
-    <div class="row">
-        <item-slot [item]="belts[0]"  class="col s3 left"></item-slot>
-        <item-slot [item]="belts[0]"  class="col s3 right"></item-slot>
-    </div>
-    <div class="row">
-        <item-slot [item]="belts[0]"  class="col s3"></item-slot>
-        <item-slot [item]="belts[0]"  class="col s3"></item-slot>
-        <item-slot [item]="belts[0]"  class="col s3"></item-slot>
-        <item-slot [item]="belts[0]"  class="col s3"></item-slot>
-    </div>    
+        <h5>ToA:</h5>
+    </div>   
 </div>

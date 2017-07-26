@@ -1,7 +1,9 @@
 <div class="row">
     Selected:{{selectedSlot}}
-</div><div>
-    <player [equipped]="equipped" (selectedChange)="changeSelected($event)" (selectedRealm)="changeSelected($event)"></player>
-    <item-list [items]="items[selectedSlot]" [current]="equipped" [selectedSlot]="selectedSlot" category="Belts"></item-list>
-          <div *ngIf="selectedRealm">{{selectedRealm.name}}</div>
+</div>
+<div class="row">
+    <player [equipped]="equipped" (selectedChange)="changeSelected($event)" (selectedRealm)="changeSelected($event)" class="col s6"></player>
+    <bonus [equipped]="equipped" class="col s3"></bonus>
+    <item-list [items]="items[selectedSlot]" [current]="equipped" [selectedSlot]="selectedSlot" category="Belts" class="col s3"></item-list>
+   
 </div>

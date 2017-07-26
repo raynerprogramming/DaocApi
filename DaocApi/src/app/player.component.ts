@@ -47,7 +47,7 @@ export class PlayerComponent {
                 dyable: false
             },
             bonuses: [],
-            mappedBonus: [],
+            mappedBonuses: [],
             type_data: {
                 dps: -1,
                 clamped_dps: -1,
@@ -67,7 +67,9 @@ export class PlayerComponent {
             use_duration: -1,
             bonus_level: -1,
             dye_type: -1,
-            delve_text: ""
+            delve_text: "",
+            toa_utility: -1,
+            utility: -1
         }
 
         console.log("Friends are being called");
